@@ -1,48 +1,52 @@
-const inputCatatan = document.getElementById("input-catatan");
-const btnTambah = document.getElementById("btn-tambah");
-const daftarCatatan = document.getElementById("daftar-catatan");
+const TARGET_DOWNLOAD_URL = "https://drive.google.com/file/d/1IxPVbH2_jZrMhv8iui9Xd6kBLtP7h5S-/view?usp=drivesdk";
+const WAIT_SECONDS = 8;
 
-const STORAGE_KEY = "catatan_saku_items_v1";
-let items = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+const btnWa = document.getElementById("btn-wa");
+const btnDownload = document.getElementById("btn-download");
+const btnDlText = document.getElementById("btn-dl-text");
+const lockInfo = document.getElementById("lock-info");
+const statusText = document.getElementById("status-text");
+const progressWrap = document.getElementById("progress-wrap");
+const progressBar = document.getElementById("progress-bar");
+const icoLock = document.getElementById("ico-lock");
 
-function simpanDanRender() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  render();
-}
+let started = false;
+let unlocked = false;
 
-function render() {
-  daftarCatatan.innerHTML = "";
-  items.forEach((teks, index) => {
-    const li = document.createElement("li");
+btnWa.addEventListener("click", () => {
+  if (started || unlocked) return;
+  started = true;
 
-    const span = document.createElement("span");
-    span.textContent = teks;
+  let sisa = WAIT_SECONDS;
+  progressWrap.style.display = "block";
+  lockInfo.textContent = "Sedang memverifikasi langganan saluran...";
+  statusText.textContent = `Mohon tunggu ${sisa} detik untuk membuka link...`;
+  btnDlText.textContent = `MEMBUKA DALAM ${sisa}d...`;
 
-    const btnHapus = document.createElement("button");
-    btnHapus.textContent = "Hapus";
-    btnHapus.className = "hapus";
-    btnHapus.addEventListener("click", () => {
-      items.splice(index, 1);
-      simpanDanRender();
-    });
+  const timer = setInterval(() => {
+    sisa -= 1;
+    const persen = Math.min(100, Math.round(((WAIT_SECONDS - sisa) / WAIT_SECONDS) * 100));
+    progressBar.style.width = persen + "%";
 
-    li.appendChild(span);
-    li.appendChild(btnHapus);
-    daftarCatatan.appendChild(li);
-  });
-}
-
-function tambahCatatan() {
-  const teks = inputCatatan.value.trim();
-  if (!teks) return;
-  items.push(teks);
-  inputCatatan.value = "";
-  simpanDanRender();
-}
-
-btnTambah.addEventListener("click", tambahCatatan);
-inputCatatan.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") tambahCatatan();
+    if (sisa > 0) {
+      statusText.textContent = `Mohon tunggu ${sisa} detik untuk membuka link...`;
+      btnDlText.textContent = `MEMBUKA DALAM ${sisa}d...`;
+    } else {
+      clearInterval(timer);
+      unlocked = true;
+      btnDownload.disabled = false;
+      btnDownload.classList.add("unlocked");
+      if (icoLock && typeof VIP_ICONS !== "undefined") {
+        icoLock.innerHTML = VIP_ICONS.download;
+      }
+      lockInfo.textContent = "Akses VIP terbuka! Silakan download file di bawah.";
+      btnDlText.textContent = "DOWNLOAD MOD MENU RIO RISE";
+      statusText.textContent = "Verifikasi selesai. Link siap digunakan.";
+    }
+  }, 1000);
 });
 
-render();
+btnDownload.addEventListener("click", () => {
+  if (!unlocked) return;
+  window.open(TARGET_DOWNLOAD_URL, "_blank", "noopener,noreferrer");
+});

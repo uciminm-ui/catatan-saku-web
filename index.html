@@ -3,92 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catatan Saku Web</title>
+  <title>MOD MENU RIO RISE - VIP Access</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 48px auto;
-      padding: 0 16px;
-      background: #f9fafb;
-      color: #111827;
-    }
-    .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    .header {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #1e1b4b 0%, #090d16 70%);
+      color: #f8fafc;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      padding: 20px 16px;
+    }
+    .vip-card {
+      width: 100%;
+      max-width: 440px;
+      background: linear-gradient(145deg, #111827, #0f172a);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 24px rgba(250, 204, 21, 0.12);
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(250, 204, 21, 0.14);
+      border: 1px solid rgba(250, 204, 21, 0.45);
+      color: #facc15;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #ffffff, #fde047);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+    .step-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .step-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: #cbd5e1;
       margin-bottom: 12px;
     }
-    .row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    input {
-      flex: 1;
-      padding: 10px 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 15px;
-    }
-    button {
-      padding: 10px 14px;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: #ffffff;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1d4ed8;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      display: flex;
-      justify-content: space-between;
+    .btn {
+      width: 100%;
+      display: inline-flex;
       align-items: center;
-      padding: 10px 12px;
-      border-bottom: 1px solid #f3f4f6;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
     }
-    .hapus {
-      background: #ef4444;
-      padding: 6px 10px;
-      font-size: 13px;
+    .btn:active {
+      transform: scale(0.98);
     }
-    .hapus:hover {
-      background: #dc2626;
+    .btn-wa {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.3);
+    }
+    .btn-wa:hover {
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.45);
+    }
+    .btn-download {
+      background: #1e293b;
+      color: #64748b;
+      cursor: not-allowed;
+      border: 1px solid #334155;
+    }
+    .btn-download.unlocked {
+      background: linear-gradient(135deg, #facc15, #eab308);
+      color: #090d16;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+    }
+    .progress-wrap {
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+      display: none;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #facc15);
+      transition: width 0.3s linear;
+    }
+    .status-text {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <span id="ikon-utama"></span>
-      <h1 style="margin: 0; font-size: 22px;">Catatan Saku</h1>
-    </div>
-    <p style="margin-top: 0; color: #4b5563;">Simpan daftar tugas atau catatan singkatmu di browser.</p>
-
-    <div class="row">
-      <input type="text" id="input-catatan" placeholder="Tulis catatan baru..." />
-      <button id="btn-tambah">Tambah</button>
+  <div class="vip-card">
+    <div class="badge">
+      <span id="ico-crown"></span>
+      <span>VIP ACCESS GATE</span>
     </div>
 
-    <ul id="daftar-catatan"></ul>
+    <h1 class="title">MOD MENU RIO RISE</h1>
+    <p class="subtitle">Ikuti saluran resmi <strong>GG SCRIPT UPDATE</strong> di WhatsApp terlebih dahulu untuk membuka kunci link download.</p>
+
+    <div class="step-box">
+      <div class="step-label">Langkah 1 &bull; Verifikasi Saluran</div>
+      <p class="step-desc">Klik tombol di bawah untuk mengikuti saluran WhatsApp kami:</p>
+      <a id="btn-wa" class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDNVy48qIzuoDNp9v1j" target="_blank" rel="noopener noreferrer">
+        <span id="ico-wa"></span>
+        <span>Ikuti Saluran GG SCRIPT UPDATE</span>
+      </a>
+    </div>
+
+    <div class="step-box">
+      <div class="step-label">Langkah 2 &bull; File Download</div>
+      <p class="step-desc" id="lock-info">Link masih terkunci. Selesaikan Langkah 1 di atas.</p>
+      <button id="btn-download" class="btn btn-download" disabled>
+        <span id="ico-lock"></span>
+        <span id="btn-dl-text">LINK TERKUNCI</span>
+      </button>
+
+      <div class="progress-wrap" id="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="status-text" id="status-text">Menunggu klik saluran WhatsApp...</div>
+    </div>
+
+    <div class="footer-note">GG SCRIPT UPDATE &bull; Verified File Link</div>
   </div>
 
-  <script src="icon.js"></script>
+  <script src="ico.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
