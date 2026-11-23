@@ -3,122 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MOD MENU RIO RISE — VIP Access Gate</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
-  <script src="icon.js" defer></script>
-  <script src="app.js" defer></script>
+  <title>MOD MENU RIO RISE - VIP Access</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #1e1b4b 0%, #090d16 70%);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+    }
+    .vip-card {
+      width: 100%;
+      max-width: 440px;
+      background: linear-gradient(145deg, #111827, #0f172a);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 24px rgba(250, 204, 21, 0.12);
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(250, 204, 21, 0.14);
+      border: 1px solid rgba(250, 204, 21, 0.45);
+      color: #facc15;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #ffffff, #fde047);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+    .step-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .step-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+    .btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .btn-wa {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.3);
+    }
+    .btn-wa:hover {
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.45);
+    }
+    .btn-download {
+      background: #1e293b;
+      color: #64748b;
+      cursor: not-allowed;
+      border: 1px solid #334155;
+    }
+    .btn-download.unlocked {
+      background: linear-gradient(135deg, #facc15, #eab308);
+      color: #090d16;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+    }
+    .progress-wrap {
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+      display: none;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #facc15);
+      transition: width 0.25s linear;
+    }
+    .status-text {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
 </head>
 <body>
-  <main class="vip-wrapper">
-    <section class="vip-card" id="vip-card" data-state="locked" aria-live="polite">
-      <div class="top-row">
-        <span class="vip-badge">
-          <span class="icon-slot" data-vip-icon="crown"></span>
-          <span>VIP ACCESS GATE</span>
-        </span>
-        <span class="version-pill">MOD MENU RIO RISE</span>
+  <div class="vip-card">
+    <div class="badge">
+      <span id="ico-crown"></span>
+      <span>VIP ACCESS GATE</span>
+    </div>
+
+    <h1 class="title">MOD MENU RIO RISE</h1>
+    <p class="subtitle">Ikuti saluran resmi <strong>GG SCRIPT UPDATE</strong> di WhatsApp terlebih dahulu untuk membuka kunci link download.</p>
+
+    <div class="step-box">
+      <div class="step-label">Langkah 1 &bull; Verifikasi Saluran</div>
+      <p class="step-desc">Klik tombol di bawah untuk mengikuti saluran WhatsApp kami:</p>
+      <a id="btn-wa" class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDNVy48qIzuoDNp9v1j" target="_blank" rel="noopener noreferrer">
+        <span id="ico-wa"></span>
+        <span>Ikuti Saluran GG SCRIPT UPDATE</span>
+      </a>
+    </div>
+
+    <div class="step-box">
+      <div class="step-label">Langkah 2 &bull; File Download</div>
+      <p class="step-desc" id="lock-info">Link masih terkunci. Selesaikan Langkah 1 di atas.</p>
+      <button id="btn-download" class="btn btn-download" disabled>
+        <span id="ico-lock"></span>
+        <span id="btn-dl-text">LINK TERKUNCI</span>
+      </button>
+
+      <div class="progress-wrap" id="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
       </div>
+      <div class="status-text" id="status-text">Menunggu klik saluran WhatsApp...</div>
+    </div>
 
-      <header class="hero">
-        <h1 class="hero-title">MOD MENU RIO RISE</h1>
-        <p class="hero-subtitle">
-          Buka saluran resmi <strong>GG SCRIPT UPDATE</strong> terlebih dahulu untuk memulai proses akses dan membuka link download.
-        </p>
-      </header>
+    <div class="footer-note">GG SCRIPT UPDATE &bull; Verified File Link</div>
+  </div>
 
-      <!-- Real-time Visual Status Banner -->
-      <div class="status-banner status-1" id="status-banner">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span class="icon-slot status-icon" id="status-icon" data-vip-icon="lock"></span>
-        <span class="status-text" id="status-text">MENUNGGU KLIK CHANNEL</span>
-      </div>
-
-      <!-- Step 1: Channel Access -->
-      <div class="panel" id="channel-panel">
-        <div class="panel-head">
-          <span class="step-tag">LANGKAH 01</span>
-          <span class="channel-badge" id="channel-opened-badge" hidden>
-            <span class="icon-slot" data-vip-icon="check-circle"></span>
-            <span>CHANNEL LINK SUDAH DIBUKA</span>
-          </span>
-        </div>
-
-        <p class="panel-desc">
-          Klik tombol di bawah untuk membuka saluran WhatsApp <strong>GG SCRIPT UPDATE</strong> di tab baru.
-        </p>
-
-        <a
-          id="btn-channel"
-          class="btn btn-channel"
-          href="https://whatsapp.com/channel/0029VbDNVy48qIzuoDNp9v1j"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="icon-slot" data-vip-icon="whatsapp"></span>
-          <span class="btn-label" id="btn-channel-label">JOIN CHANNEL WHATSAPP</span>
-          <span class="icon-slot btn-trailing" data-vip-icon="external-link"></span>
-        </a>
-
-        <div class="secondary-meta" id="channel-note">
-          Membuka tautan saluran resmi di tab baru tanpa menutup halaman ini.
-        </div>
-      </div>
-
-      <!-- Step 2: Live Countdown & APK Download -->
-      <div class="panel panel-download" id="download-panel">
-        <div class="panel-head">
-          <span class="step-tag">LANGKAH 02</span>
-          <span class="timer-pill" id="timer-pill">00:15</span>
-        </div>
-
-        <!-- Countdown Active View -->
-        <div class="countdown-box" id="countdown-box" hidden>
-          <div class="countdown-header">
-            <span class="icon-slot spin-soft" data-vip-icon="clock"></span>
-            <span class="countdown-title">LINK SEDANG DIPROSES</span>
-          </div>
-          <div class="countdown-clock" id="countdown-clock">00:15</div>
-          <p class="countdown-sub">Mohon tunggu sebentar, link download akan terbuka secara otomatis.</p>
-          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track">
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
-        </div>
-
-        <!-- Unlocked Ready View -->
-        <div class="ready-box" id="ready-box" hidden>
-          <div class="ready-header">
-            <span class="icon-slot" data-vip-icon="check-circle"></span>
-            <span>ACCESS BERHASIL DIBUKA</span>
-          </div>
-          <p class="ready-sub">LINK DOWNLOAD SUDAH SIAP!</p>
-        </div>
-
-        <!-- Locked Default View -->
-        <div class="locked-box" id="locked-box">
-          <p class="panel-desc">
-            Tombol download akan aktif otomatis setelah klik channel dan menyelesaikan countdown 15 detik.
-          </p>
-        </div>
-
-        <button
-          type="button"
-          id="btn-download"
-          class="btn btn-download is-locked"
-          disabled
-          aria-disabled="true"
-        >
-          <span class="icon-slot" id="btn-download-icon" data-vip-icon="lock"></span>
-          <span class="btn-label" id="btn-download-label">LINK TERKUNCI</span>
-        </button>
-      </div>
-
-      <footer class="card-footer">
-        <span>GG SCRIPT UPDATE</span>
-        <span class="dot-sep">&bull;</span>
-        <span>VIP GATE v2.0</span>
-      </footer>
-    </section>
-  </main>
+  <script src="ico.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
