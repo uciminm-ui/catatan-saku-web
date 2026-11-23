@@ -3,7 +3,7 @@
 
   const CONFIG = {
     CHANNEL_URL: "https://whatsapp.com/channel/0029VbDNVy48qIzuoDNp9v1j",
-    APK_DOWNLOAD_URL: "https://drive.google.com/file/d/1IxPVbH2_jZrMhv8iui9Xd6kBLtP7h5S-/view?usp=drivesdk",
+    APK_DOWNLOAD_URL: "https://drive.usercontent.google.com/download?id=1IxPVbH2_jZrMhv8iui9Xd6kBLtP7h5S-&export=download",
     COUNTDOWN_SECONDS: 15,
     STORAGE_KEY: "rio_rise_vip_gate_v2"
   };
