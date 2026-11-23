@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catatan Saku Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 48px auto;
+      padding: 0 16px;
+      background: #f9fafb;
+      color: #111827;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .hapus {
+      background: #ef4444;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+    .hapus:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <span id="ikon-utama"></span>
+      <h1 style="margin: 0; font-size: 22px;">Catatan Saku</h1>
+    </div>
+    <p style="margin-top: 0; color: #4b5563;">Simpan daftar tugas atau catatan singkatmu di browser.</p>
+
+    <div class="row">
+      <input type="text" id="input-catatan" placeholder="Tulis catatan baru..." />
+      <button id="btn-tambah">Tambah</button>
+    </div>
+
+    <ul id="daftar-catatan"></ul>
+  </div>
+
+  <script src="icon.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
